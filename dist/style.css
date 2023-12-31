@@ -69,17 +69,27 @@ nav{
     color: var(--clr-text);
 }
 
-.sidebar div{
+.sidebar a{
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
-.sidebar div.add-project{
+.sidebar a:hover{
+    background-color: var(--clr-background);
+    padding: .15rem;
+    transition: background-color .3s;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.sidebar a.add-project{ 
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
     border-bottom: 1px solid var(--clr-border);
 }
+
+
 /* /sidebar */
 
 /* dialog form result (content) */

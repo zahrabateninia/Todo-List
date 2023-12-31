@@ -39,8 +39,8 @@ function createSidebar() {
 
     // Loop through each sidebar item and create its elements
     sidebarItems.forEach(item => {
-        const div = document.createElement('div');
-        div.classList.add(item.class);
+        const anchor = document.createElement('a');
+        anchor.classList.add(item.class);
 
         const img = document.createElement('img');
         img.src = item.imgSrc;
@@ -51,9 +51,16 @@ function createSidebar() {
         p.textContent = item.text;
         p.classList.add(item.class);
 
-        div.appendChild(img);
-        div.appendChild(p);
-        sidebar.appendChild(div);
+        if (item.class === 'add-project') {
+            // Append the text before the icon
+            anchor.appendChild(p);
+            anchor.appendChild(img);
+        } else {
+            // Append the icon before the text
+            anchor.appendChild(img);
+            anchor.appendChild(p);
+        }
+        sidebar.appendChild(anchor);
     });
 
     nav.appendChild(sidebar);
