@@ -1,11 +1,4 @@
-/* <div class="wrapper">
-<!-- wrapper (whole page layout) -->
- <!-- header -->
-<header>
-<img src="/images/todolist.svg" alt="logo" class="logo">
-<h1>Todo List</h1>
-</header>
-<!-- /header -->*/
+import { renderInbox } from "./inbox";
 
 function createHeader(){
     const header = document.createElement('header');
@@ -30,7 +23,7 @@ function createSidebar() {
     sidebar.classList.add('sidebar');
 
     const sidebarItems = [
-        { class: 'inbox', text: 'Inbox', imgSrc: './images/inbox_FILL0_wght400_GRAD0_opsz24.svg', altText: 'inbox' },
+        { class: 'inbox', text: 'Inbox', imgSrc: './images/inbox_FILL0_wght400_GRAD0_opsz24.svg', altText: 'inbox'},
         { class: 'today', text: 'Today', imgSrc: './images/today_FILL0_wght400_GRAD0_opsz24.svg', altText: 'today' },
         { class: 'important', text: 'Important', imgSrc: './images/stars_FILL0_wght400_GRAD0_opsz24.svg', altText: 'important' },
         { class: 'completed', text: 'Completed', imgSrc: './images/done_all_FILL0_wght400_GRAD0_opsz24.svg', altText: 'completed' },
@@ -68,6 +61,12 @@ function createSidebar() {
     return nav; 
 }
 
+function createMainContent(){
+    const main = document.createElement('main');
+    main.classList.add('main-content');
+
+    return main;
+}
 
 function createFooter() {
     const footer = document.createElement('footer');
@@ -101,8 +100,11 @@ export default function initializeWebsite(){
 
     wrapper.appendChild(createHeader());
     wrapper.appendChild(createSidebar());
+    wrapper.appendChild(createMainContent());
     wrapper.appendChild(createFooter());
 
     return wrapper;
 
 }
+
+export {createSidebar}
