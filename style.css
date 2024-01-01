@@ -56,7 +56,7 @@ nav{
     display: grid;
     gap: .7rem;
     padding: 2rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem; 
     font-family: Nunito,'Bebas Neue', sans-serif;
     font-weight: 400;
     color: var(--clr-text);
@@ -71,7 +71,8 @@ nav{
 
 .sidebar a{
     display: flex;
-    gap: 1.2rem;
+    align-items: center;
+    gap: 1rem;
 }
 
 .sidebar a:hover{
@@ -102,6 +103,48 @@ main.main-content{
 /* /main content */
 /* inbox dialog form */
 /* /inbox dialog form */
+
+/* Inbox style */
+.inbox-div {
+    gap: 1rem;
+    margin: 2rem 3rem;
+}
+
+.inbox-div h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: .7px;
+}
+
+div.add-new-task {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    margin-top: 1rem;
+    border-bottom: 1px solid var(--clr-border);
+    padding: .5rem;
+}
+
+.task-plus-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+.add-new-task p {
+    flex-grow: 1; /* Ensures text takes up available space, pushing icon to the right */
+    font-size: 1.5rem;
+    color: var(--clr-text);
+    letter-spacing: 1px;
+}
+
+.add-new-task:hover {
+    background-color: var(--clr-background);
+    transition: background-color .4s;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+/* /Inbox style */
 
 /* footer */
 footer{
