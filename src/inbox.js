@@ -36,51 +36,28 @@
 // inbox.js
 
 
-const inboxItems = [];
+// const inboxItems = [];
 
-function renderInbox(main) {
-    main.innerHTML = '';  // Clear the area
+// function renderInbox() {
 
-    const inboxH1= document.createElement('h1');
-    inboxH1.textContent= 'Inbox';
+//     const inboxH1= document.createElement('h1');
+//     inboxH1.textContent= 'Inbox';
 
-    const addNewTask = document.createElement('div');
-    addNewTask.classList.add('add-new-task');
+//     const addNewTask = document.createElement('div');
+//     addNewTask.classList.add('add-new-task');
 
-    const plusIcon =  document.createElement('img');
-    plusIcon.src = './images/add_FILL0_wght400_GRAD0_opsz24.svg';
-    plusIcon.alt = 'plus';
-    addNewTask.appendChild(plusIcon);
+//     const plusIcon =  document.createElement('img');
+//     plusIcon.src = './images/add_FILL0_wght400_GRAD0_opsz24.svg';
+//     plusIcon.alt = 'plus';
+//     addNewTask.appendChild(plusIcon);
 
-    const addTaskText = document.createElement('p');
-    addTaskText.classList.add('add-task-text');
-    addNewTask.appendChild(addTaskText);
+//     const addTaskText = document.createElement('p');
+//     addTaskText.classList.add('add-task-text');
+//     addNewTask.appendChild(addTaskText);
 
-    main.appendChild(inboxH1);
-    main.appendChild(addNewTask);
+//     return addNewTask;
 
-
-    // Create and populate a list with inbox items
-    // const list = document.createElement('ul');
-    // inboxItems.forEach(item => {
-    //     const listItem = document.createElement('li');
-    //     listItem.textContent = item;
-    //     list.appendChild(listItem);
-    // });
-
-    // mainContentArea.appendChild(list);
+// }
 
 
-    // Add event listener for the inbox link in the sidebar
-    const inboxLink = document.querySelector('.sidebar .inbox'); 
-    inboxLink.addEventListener('click', (event) => {
-    event.preventDefault(); // Prevent default link behavior
-    renderInbox(main); // Call renderInbox from inbox.js
-});
-}
-
-
-
-
-
-export { renderInbox };
+// export { renderInbox };

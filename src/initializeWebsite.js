@@ -1,4 +1,4 @@
-import { renderInbox } from "./inbox";
+// import { renderInbox } from "./inbox";
 
 function createHeader(){
     const header = document.createElement('header');
@@ -61,7 +61,7 @@ function createSidebar() {
     return nav; 
 }
 
-function createMainContent(){
+function createMain(){
     const main = document.createElement('main');
     main.classList.add('main-content');
 
@@ -100,11 +100,86 @@ export default function initializeWebsite(){
 
     wrapper.appendChild(createHeader());
     wrapper.appendChild(createSidebar());
-    wrapper.appendChild(createMainContent());
+    wrapper.appendChild(createMain());
     wrapper.appendChild(createFooter());
 
     return wrapper;
 
 }
 
-export {createSidebar}
+
+// Ensure that when a link in the sidebar is clicked, the corresponding content is displayed in the main area.(update UI)
+
+
+function renderInbox(){
+    const inboxDiv = document.createElement('div');
+    inboxDiv.classList.add('inbox-div');
+
+    const inboxH1= document.createElement('h1');
+    inboxH1.textContent= 'Inbox';
+
+    const addNewTaskDiv = document.createElement('div');
+    addNewTaskDiv.classList.add('add-new-task');
+
+    const plusIcon =  document.createElement('img');
+    plusIcon.src = './images/add_FILL0_wght400_GRAD0_opsz24.svg';
+    plusIcon.classList.add('task-plus-icon')
+    plusIcon.alt = 'plus';
+    addNewTaskDiv.appendChild(plusIcon);
+
+    const addTaskP = document.createElement('p');
+    addTaskP.classList.add('add-task-text');
+    addTaskP.textContent = 'Add a new task'
+    addNewTaskDiv.appendChild(addTaskP);
+    
+    inboxDiv.appendChild(inboxH1);
+    inboxDiv.appendChild(addNewTaskDiv)
+    return inboxDiv;
+};
+
+function renderToday(){
+    return 'today'
+};
+
+
+function renderCompleted(){
+    return 'comp'
+};
+
+
+function renderImportant(){
+    return 'imp'
+};
+
+export function updateMainContent(){
+    const mainContent = document.querySelector('.main-content');
+
+    
+    // Grab all sidebar links
+    const sidebarLinks = document.querySelectorAll('.sidebar a');
+    
+    // Add an event listener to each link
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();  // Prevent the default link action
+
+            // Clear the main content
+            mainContent.textContent = ' ';
+
+            // Determine which function to call based on clicked link's class
+            if(link.classList.contains('inbox')){
+                const inboxContent = renderInbox();
+                mainContent.appendChild(inboxContent);
+            }
+            else if(link.classList.contains('today')){
+                mainContent.textContent = renderToday();
+            }
+            else if(link.classList.contains('complete')){
+                mainContent.textContent = renderCompleted();
+            }
+            else if(link.classList.contains('important')){
+                mainContent.textContent = renderImportant();
+            }
+        });
+    });
+};
