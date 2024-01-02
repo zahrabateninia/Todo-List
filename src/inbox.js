@@ -1,63 +1,160 @@
-// <!-- content -->
-// <div class="content">
 
-// </div>
-// <!-- /content -->
+export function renderInbox(){
+    const inboxDiv = document.createElement('div');
+    inboxDiv.classList.add('inbox-div');
 
-// <!-- dialog form -->
-// <dialog class="inbox">
-// <h2 class="dialog-title.">New Task</h2>
-// <form action="dialog">
-//     <div class="task-title">
-//         <label for="task-title">Task Title*</label>
-//         <input type="text" value="" name="task-title" id="task-title" placeholder="e.g. Workout" class="task-title--input" required>
-//     </div>
-//     <div class="priority">
-//         <label for="priority">Priority</label>
-//         <select name="priority" id="priority" class="priority--select">
-//             <option value="low">Low</option>
-//             <option value="medium">Medium</option>
-//             <option value="high">High</option>
-//         </select>
-//     </div>
-//     <div class="schedule">
-//         <label for="schedule">Schedule</label>
-//         <input type="date" value="" name="schedule" id="schedule" class="due-date">
-//     </div>
-//     <div class="buttons">
-//         <button class="cancel-btn">Cancel</button>
-//         <button type="submit" class="add-btn">Add</button>
-//     </div>
+    const inboxH1= document.createElement('h1');
+    inboxH1.textContent= 'Inbox';
+
+    const addNewTaskDiv = document.createElement('div');
+    addNewTaskDiv.classList.add('add-new-task');
+
+    const plusIcon =  document.createElement('img');
+    plusIcon.src = './images/add_FILL0_wght400_GRAD0_opsz24.svg';
+    plusIcon.classList.add('task-plus-icon')
+    plusIcon.alt = 'plus';
+    addNewTaskDiv.appendChild(plusIcon);
+
+    const addTaskP = document.createElement('p');
+    addTaskP.classList.add('add-task-text');
+    addTaskP.textContent = 'Add a new task'
+    addNewTaskDiv.appendChild(addTaskP);
     
-// </form>
-// </dialog>
-// <!-- /dialog form --> 
+    inboxDiv.appendChild(inboxH1);
+    inboxDiv.appendChild(addNewTaskDiv);
+    createAddTaskDialog();
+    return inboxDiv;
+};
 
-// inbox.js
-
-
-// const inboxItems = [];
-
-// function renderInbox() {
-
-//     const inboxH1= document.createElement('h1');
-//     inboxH1.textContent= 'Inbox';
-
-//     const addNewTask = document.createElement('div');
-//     addNewTask.classList.add('add-new-task');
-
-//     const plusIcon =  document.createElement('img');
-//     plusIcon.src = './images/add_FILL0_wght400_GRAD0_opsz24.svg';
-//     plusIcon.alt = 'plus';
-//     addNewTask.appendChild(plusIcon);
-
-//     const addTaskText = document.createElement('p');
-//     addTaskText.classList.add('add-task-text');
-//     addNewTask.appendChild(addTaskText);
-
-//     return addNewTask;
-
-// }
+// render inbox end
 
 
-// export { renderInbox };
+function createAddTaskDialog() {
+    // Create dialog element
+    const dialog = document.createElement('dialog');
+    dialog.classList.add('add-task-dialog');
+
+    // Create dialog title
+    const title = document.createElement('h2');
+    title.classList.add('dialog-title');
+    title.textContent = 'New Task';
+
+    // Create form
+    const form = document.createElement('form');
+    form.action = "dialog"; 
+
+    // Form inputs
+    const inputsDiv = document.createElement('div'); 
+    inputsDiv.classList.add('inputsDiv');
+
+    // label input div for each of inputs
+    const individualInput = document.createElement('div');
+    individualInput.classList.add('individual-input');
+
+
+    // Task title input
+    const taskTitleDiv = document.createElement('div');
+    taskTitleDiv.classList.add('task-title');
+    const taskTitleLabel = document.createElement('label');
+    taskTitleLabel.htmlFor = 'task-title';
+    taskTitleLabel.textContent = 'Task Title*';
+    const taskTitleInput = document.createElement('input');
+    taskTitleInput.type = 'text';
+    taskTitleInput.name = 'task-title';
+    taskTitleInput.id = 'task-title';
+    taskTitleInput.classList.add('task-title--input');
+    taskTitleInput.placeholder = 'e.g. Workout';
+    taskTitleInput.required = true;
+    taskTitleDiv.appendChild(taskTitleLabel);
+    taskTitleDiv.appendChild(taskTitleInput);
+
+    individualInput.appendChild(taskTitleDiv);
+
+    // Priority select
+    const priorityDiv = document.createElement('div');
+    priorityDiv.classList.add('priority');
+    const priorityLabel = document.createElement('label');
+    priorityLabel.htmlFor = 'priority';
+    priorityLabel.textContent = 'Priority';
+    const prioritySelect = document.createElement('select');
+    prioritySelect.name = 'priority';
+    prioritySelect.id = 'priority';
+    prioritySelect.classList.add('priority--select');
+    ['Low', 'Medium', 'High'].forEach((priority) => {
+        const option = document.createElement('option');
+        option.value = priority.toLowerCase();
+        option.textContent = priority;
+        prioritySelect.appendChild(option);
+    });
+    priorityDiv.appendChild(priorityLabel);
+    priorityDiv.appendChild(prioritySelect);
+
+    individualInput.appendChild(priorityDiv);
+
+    // Schedule date input
+    const scheduleDiv = document.createElement('div');
+    scheduleDiv.classList.add('schedule');
+    const scheduleLabel = document.createElement('label');
+    scheduleLabel.htmlFor = 'schedule';
+    scheduleLabel.textContent = 'Schedule';
+    const scheduleInput = document.createElement('input');
+    scheduleInput.type = 'date';
+    scheduleInput.name = 'schedule';
+    scheduleInput.id = 'schedule';
+    scheduleInput.classList.add('due-date');
+    scheduleDiv.appendChild(scheduleLabel);
+    scheduleDiv.appendChild(scheduleInput);
+
+    individualInput.appendChild(scheduleDiv);
+
+    // Buttons
+    const buttonsDiv = document.createElement('div');
+    buttonsDiv.classList.add('buttons');
+    const cancelButton = document.createElement('button');
+    cancelButton.classList.add('cancel-btn');
+    cancelButton.textContent = 'Cancel';
+    const addButton = document.createElement('button');
+    addButton.type = 'submit';
+    addButton.classList.add('add-btn');
+    addButton.textContent = 'Add';
+    buttonsDiv.appendChild(cancelButton);
+    buttonsDiv.appendChild(addButton);
+
+    // Append all inputs and their labels in inputsDiv 
+    inputsDiv.appendChild(individualInput);
+
+    // Append all parts to form
+    form.appendChild(inputsDiv);
+    form.appendChild(buttonsDiv);
+
+    // Append form to dialog
+    dialog.appendChild(title);
+    dialog.appendChild(form);
+
+    return dialog;
+};
+
+
+export function addTaskDialog() {
+    const addNewTaskDiv = document.querySelector('.add-new-task');
+
+    // Attach the event listener to the .add-new-task div
+    addNewTaskDiv.addEventListener('click', () => {
+        // Create and append the dialog
+        const dialog = createAddTaskDialog();
+        document.body.appendChild(dialog);
+        dialog.showModal();
+        // Apply the blur class to the main content
+        // document.body.classList.add('blurred');
+
+        // Now that the dialog is part of the document, select the cancel button
+        const cancelButton = dialog.querySelector('.cancel-btn'); // Selecting from within dialog
+
+        // Attach event listener to close the dialog when cancel is clicked
+        cancelButton.addEventListener('click', () => {
+            dialog.close();
+            document.body.removeChild(dialog); // Consider removing the dialog after closing
+            // document.body.classList.remove('blurred');
+        });
+    });
+}
