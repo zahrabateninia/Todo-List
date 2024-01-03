@@ -1,3 +1,4 @@
+import { renderNewTask } from "./toDoItem";
 
 export function renderInbox(){
     const inboxDiv = document.createElement('div');
@@ -26,7 +27,6 @@ export function renderInbox(){
     return inboxDiv;
 };
 
-// render inbox end
 
 
 function createAddTaskDialog() {
@@ -134,27 +134,53 @@ function createAddTaskDialog() {
     return dialog;
 };
 
+// Global tasks container
+let tasksContainer; // Will be initialized only once
+export const tasksArr = [];
 
 export function addTaskDialog() {
+    // Ensure tasksContainer is created and appended only once
+    if (!tasksContainer) {
+        tasksContainer = document.createElement('div');
+        tasksContainer.classList.add('tasks-container');
+        document.querySelector('.main-content').appendChild(tasksContainer);
+    }
+
     const addNewTaskDiv = document.querySelector('.add-new-task');
 
     // Attach the event listener to the .add-new-task div
     addNewTaskDiv.addEventListener('click', () => {
-        // Create and append the dialog
         const dialog = createAddTaskDialog();
         document.body.appendChild(dialog);
         dialog.showModal();
-        // Apply the blur class to the main content
-        // document.body.classList.add('blurred');
 
-        // Now that the dialog is part of the document, select the cancel button
-        const cancelButton = dialog.querySelector('.cancel-btn'); // Selecting from within dialog
+        const cancelButton = dialog.querySelector('.cancel-btn'); 
+        const addButton = dialog.querySelector('.add-btn');
 
-        // Attach event listener to close the dialog when cancel is clicked
         cancelButton.addEventListener('click', () => {
             dialog.close();
-            document.body.removeChild(dialog); // Consider removing the dialog after closing
-            // document.body.classList.remove('blurred');
+            document.body.removeChild(dialog); // removing the dialog after closing
+        });
+
+        addButton.addEventListener('click', (e) =>{
+            e.preventDefault();
+
+            const title = dialog.querySelector('#task-title').value;
+            const priority = dialog.querySelector('#priority').value;
+            const schedule = dialog.querySelector('#schedule').value;
+
+            const newTask = {
+                title: title,
+                priority: priority,
+                schedule: schedule
+            };
+
+            tasksArr.push(newTask);
+
+            dialog.close();
+            document.body.removeChild(dialog);
+
+            renderNewTask(); // This function should now handle rendering all tasks
         });
     });
 }
