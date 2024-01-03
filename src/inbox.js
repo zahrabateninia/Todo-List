@@ -7,6 +7,11 @@ export function renderInbox(){
     const inboxH1= document.createElement('h1');
     inboxH1.textContent= 'Inbox';
 
+    // all tasks container which is below the header and above the add new task div
+    const allTasksContainer = document.createElement('div');
+    allTasksContainer.classList.add('all-tasks-container');
+
+
     const addNewTaskDiv = document.createElement('div');
     addNewTaskDiv.classList.add('add-new-task');
 
@@ -22,6 +27,7 @@ export function renderInbox(){
     addNewTaskDiv.appendChild(addTaskP);
     
     inboxDiv.appendChild(inboxH1);
+    inboxDiv.appendChild(allTasksContainer);
     inboxDiv.appendChild(addNewTaskDiv);
     createAddTaskDialog();
     return inboxDiv;

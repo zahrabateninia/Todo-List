@@ -2,9 +2,9 @@ import { tasksArr } from "./inbox";
 
 
 export function renderNewTask(){
-    const mainContent = document.querySelector('.main-content');
-    const inboxDiv = mainContent.querySelector('.inbox-div');
-    const addNewTaskDiv = mainContent.querySelector('.add-new-task');
+    const allTasksContainer = document.querySelector('.all-tasks-container');
+    // Clear all previous tasks before rendering a new one
+    allTasksContainer.innerHTML = '';
     
     tasksArr.forEach(task =>{
         const taskContainer = document.createElement('div');
@@ -45,9 +45,8 @@ export function renderNewTask(){
         trashIcon.src = "./images/delete_FILL0_wght400_GRAD0_opsz24.svg";
         taskContainer.appendChild(trashIcon);
 
-        // Insert each new taskDiv before the newTaskDiv
-        // mainContent.appendChild(taskContainer);
-        inboxDiv.insertBefore(taskContainer, addNewTaskDiv);
+        allTasksContainer.appendChild(taskContainer);
+    
         
     })
 
