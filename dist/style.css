@@ -212,6 +212,7 @@ button.cancel-btn{
     color: rgb(46, 46, 46);
     font-weight: 500;
     letter-spacing: .7px;
+    margin-bottom: 2.6rem;
 }
 
 div.add-new-task {
@@ -283,6 +284,11 @@ span.priority{
     width: 1.5rem;
     height: 1.5rem;
     color: rgb(161, 161, 161);
+    
+}
+
+.task-icon:hover{
+    cursor: pointer;
     
 }
 
