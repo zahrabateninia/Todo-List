@@ -41,10 +41,10 @@ header{
 }
 
 header h1{
-    color: var(--clr-secondary);
+    color: white;
     font-family: "Bebas Neue", sans-serif;
     letter-spacing: 2px;
-    font-size: 2rem;
+    font-size: 3rem;
     padding-left: 1rem;
 }
 /* /header */
@@ -66,9 +66,9 @@ nav{
 }
 
 .navbar.icon{
-    width: 2rem;
-    height: 2rem;
-    color: var(--clr-text);
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--clr-text);
 }
 
 .sidebar a{
@@ -78,7 +78,7 @@ nav{
 }
 
 .sidebar a:hover{
-    background-color: var(--clr-background);
+    background-color: var(--clr-secondary);
     padding: .15rem;
     transition: background-color .7s;
     border-radius: 2px;
@@ -208,7 +208,8 @@ button.cancel-btn{
 }
 
 .inbox-div h1 {
-    font-size: 3rem;
+    font-size: 2rem;
+    color: rgb(46, 46, 46);
     font-weight: 500;
     letter-spacing: .7px;
 }
