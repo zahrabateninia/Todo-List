@@ -14,16 +14,31 @@ export function renderNewTask(){
         const taskDetails = document.createElement('div');
         taskDetails.classList.add('task-details');
 
-        // add the circle icon
+        // add the status icon
         const statusIcon = document.createElement('img');
         statusIcon.classList.add('circle-icon', 'task-icon');
-        statusIcon.src = "./images/circle_FILL0_wght400_GRAD0_opsz24.svg"
+        statusIcon.src = "./images/circle_FILL0_wght400_GRAD0_opsz24.svg";
         taskStatusTitle.appendChild(statusIcon);
+
         // add task title 
         const taskTitle = document.createElement('p');
         taskTitle.classList.add('task-title');
         taskTitle.textContent = task.title;
         taskStatusTitle.appendChild(taskTitle);
+
+
+        // Toggle completion status
+        statusIcon.addEventListener('click', ()=>{
+            task.done = !task.done;
+            if(task.done){
+                statusIcon.src = "images/check_circle_FILL0_wght400_GRAD0_opsz24.svg";
+                taskTitle.style.textDecoration = 'line-through';
+            }else{
+                statusIcon.src = "./images/circle_FILL0_wght400_GRAD0_opsz24.svg";
+                taskTitle.style.textDecoration = 'none';
+            }
+        });
+        
         // add schedule
         const schedule = document.createElement('span');
         schedule.classList.add('schedule');

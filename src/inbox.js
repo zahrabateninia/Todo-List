@@ -178,7 +178,8 @@ export function addTaskDialog() {
             const newTask = {
                 title: title,
                 priority: priority,
-                schedule: schedule
+                schedule: schedule,
+                done: false
             };
 
             tasksArr.push(newTask);
