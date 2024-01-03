@@ -44,7 +44,7 @@ header h1{
     color: var(--clr-secondary);
     font-family: "Bebas Neue", sans-serif;
     letter-spacing: 2px;
-    font-size: 3rem;
+    font-size: 2rem;
     padding-left: 1rem;
 }
 /* /header */
@@ -91,12 +91,7 @@ nav{
     margin-top: 1rem;
     border-bottom: 1px solid var(--clr-border);
 }
-
-
 /* /sidebar */
-
-/* dialog form result (content) */
-/* /dialog form result (content) */
 
 /* main content */
 main.main-content{
@@ -204,14 +199,6 @@ button.cancel-btn{
     cursor: pointer;
     font-size: 1rem;
 }
-
-/*  
-.blurred {
-    filter: blur(30px); 
-}  */
-
-
-
 /* /inbox dialog form */
 
 /* Inbox style */
@@ -260,6 +247,45 @@ div.add-new-task {
 /* /inbox add book dialog style */
 
 /* /Inbox style */
+
+/* style for all tasks container and each task in inbox */
+div.task-container{
+    display: flex;
+    justify-content: space-between;    
+    align-items: center;
+    font-size: 1.5rem;
+
+}
+
+div.task-status-title{
+    display: flex;
+    align-items: center;
+}
+
+div.task-details{
+    display: flex;
+    align-items: center;
+    color: rgb(146, 146, 146);
+}
+
+p.task-title{
+    font-family: Nunito,'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+
+}
+span.priority{
+    margin-left: 1rem;
+    margin-right: .6rem;
+}
+
+.task-icon{
+    width: 1.5rem;
+    height: 1.5rem;
+    color: rgb(161, 161, 161);
+    
+}
+
+/* /style for all tasks container and each task in inbox */
 
 /* footer */
 footer{
