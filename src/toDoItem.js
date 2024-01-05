@@ -38,7 +38,7 @@ export function renderNewTask(){
                 taskTitle.style.textDecoration = 'none';
             }
         });
-        
+
         // add schedule
         const schedule = document.createElement('span');
         schedule.classList.add('schedule');
@@ -67,6 +67,15 @@ export function renderNewTask(){
         taskContainer.appendChild(taskStatusTitle);
         taskContainer.appendChild(taskDetails);
         allTasksContainer.appendChild(taskContainer);
+
+
+        trashIcon.addEventListener('click', ()=>{
+            // remove the task from the DOM (the UI)
+            allTasksContainer.removeChild(taskContainer);
+            // remove the actual task data
+            const index = tasksArr.findIndex(t => t === task);
+            tasksArr.splice(index, 1);
+        })
     
     })
 
