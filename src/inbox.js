@@ -187,7 +187,7 @@ export function addTaskDialog() {
             dialog.close();
             document.body.removeChild(dialog);
 
-            renderNewTask(); // This function should now handle rendering all tasks
+            renderNewTask(); // handle rendering all tasks
         });
     });
 }
