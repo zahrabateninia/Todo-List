@@ -1,4 +1,5 @@
 import { renderInbox ,  addTaskDialog } from "./inbox";
+import { enableProjectAddition } from "./projectManager";
 
 export function updateMainContent(){
     const mainContent = document.querySelector('.main-content');
@@ -11,7 +12,6 @@ export function updateMainContent(){
     sidebarLinks.forEach(link => {
         link.addEventListener('click', (event) => {
             event.preventDefault();  // Prevent the default link action
-
             // Clear the main content
             mainContent.textContent = ' ';
 
@@ -30,6 +30,9 @@ export function updateMainContent(){
             else if(link.classList.contains('important')){
                 // mainContent.textContent = renderImportant();
             }
+            else if(link.classList.contains('add-project')){
+                enableProjectAddition();
+            };
         });
     });
 };
