@@ -10,21 +10,29 @@ export function enableProjectAddition() {
         const projectNameInput = document.createElement('input');
         projectNameInput.type = 'text';
 
+        // add and cancel buttons
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.classList.add('buttons-container');
+
+
         const addBtn = document.createElement('button');
         addBtn.textContent = 'Add';
+        addBtn.classList.add('add-project-btn');
 
         const cancelBtn = document.createElement('button');
         cancelBtn.textContent = 'Cancel';
+        cancelBtn.classList.add('cancel-adding-btn')
 
         projectNameInputContainer.appendChild(projectNameInput);
-        projectNameInputContainer.appendChild(addBtn);
-        projectNameInputContainer.appendChild(cancelBtn);
+        buttonsContainer.appendChild(cancelBtn);
+        buttonsContainer.appendChild(addBtn);
+        projectNameInputContainer.appendChild(buttonsContainer);
 
         // Append the container to the DOM
         addProjectLink.after(projectNameInputContainer);
 
         // Initially show the input container
-        projectNameInputContainer.style.display = 'block';
+        projectNameInputContainer.style.display = 'flex';
 
         // Hide the container and clear the input when 'Cancel' is clicked
         cancelBtn.addEventListener('click', () => {
@@ -36,7 +44,7 @@ export function enableProjectAddition() {
 
         // Add an event listener for the add project link
         addProjectLink.addEventListener('click', () => {
-            projectNameInputContainer.style.display = projectNameInputContainer.style.display === 'none' ? 'block' : 'none';
+            projectNameInputContainer.style.display = projectNameInputContainer.style.display === 'none' ? 'flex' : 'none';
         });
     }
 }

@@ -8,8 +8,8 @@
     --clr-text: rgb(57, 57, 57);
     --clr-border: rgb(165, 165, 165);
     --clr-accent: rgb(236, 235, 228);
-    --clr-red: #FF4500;
-    --clr-green: #4CAF50;
+    --clr-red: #f3794c;
+    --clr-green: #71ce74;
     --background: linear-gradient(to right, hsl(209, 31%, 34%), hsl(254, 31%, 47%));
 }
 
@@ -75,7 +75,7 @@ nav{
 .sidebar a{
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: .6rem;
 }
 
 .sidebar a:hover{
@@ -99,6 +99,70 @@ main.main-content{
     display: grid;
 }
 /* /main content */
+
+/* style for add projects in sidebar */
+div.project-name-input-container{
+    /* display: flex;  is set in js */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+}
+
+div.project-name-input-container input{
+    width: 100%;
+    font-size: 1rem;
+    color: var(--clr-text);
+    padding: .4rem .5rem;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+div.buttons-container{
+    display: flex;
+    gap: 1rem;
+}
+
+div.buttons-container button{
+  appearance: none;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 4px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.add-project-btn{
+    background-color: var(--clr-green);
+}
+
+.add-project-btn:hover{
+    background-color: #3dad40;
+}
+
+
+.cancel-adding-btn{
+    background-color: var(--clr-red);
+}
+
+.cancel-adding-btn:hover{
+    background-color: rgb(234, 63, 63);
+}
+
+/* /style for add projects in sidebar */
 
 /* Style for the dialog */
 dialog.add-task-dialog {
