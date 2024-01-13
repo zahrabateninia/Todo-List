@@ -52,19 +52,21 @@ export function enableProjectAddition() {
             const projectNameValue = projectNameInput.value.trim();
             projectName.textContent = projectNameValue;
             projectName.classList.add('project-name');
- 
+            // add cross icon
+            const crossIcon = document.createElement('img');
+            crossIcon.src = './images/icons8-cross-16.png';
+            crossIcon.alt = 'cross';
+            crossIcon.classList.add('cross-icon');
+            crossIcon.style.display = 'none';
+
             projectNameContainer.appendChild(projectName);
+            projectNameContainer.appendChild(crossIcon);
 
             projectsNamesContainer.appendChild(projectNameContainer);
             addProjectLink.after(projectsNamesContainer);
 
             projectNameInputContainer.style.display = 'none';
             projectNameInput.value = '';
-
-
-            
-
-
         })
 
         // Add an event listener for the add project link
