@@ -40,7 +40,32 @@ export function enableProjectAddition() {
             projectNameInput.value = '';
         });
 
-        // Add your logic for the 'Add' button here
+        // Add the new project name when add project is clicked
+        addBtn.addEventListener('click', ()=>{
+            const projectsNamesContainer = document.createElement('div');
+            projectsNamesContainer.classList.add('projects-names-container');
+
+            const projectNameContainer = document.createElement('div');
+            projectNameContainer.classList.add('project-name-container');
+
+            const projectName = document.createElement('div');
+            const projectNameValue = projectNameInput.value.trim();
+            projectName.textContent = projectNameValue;
+            projectName.classList.add('project-name');
+ 
+            projectNameContainer.appendChild(projectName);
+
+            projectsNamesContainer.appendChild(projectNameContainer);
+            addProjectLink.after(projectsNamesContainer);
+
+            projectNameInputContainer.style.display = 'none';
+            projectNameInput.value = '';
+
+
+            
+
+
+        })
 
         // Add an event listener for the add project link
         addProjectLink.addEventListener('click', () => {
