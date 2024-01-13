@@ -40,10 +40,6 @@ function createAddTaskDialog() {
     const dialog = document.createElement('dialog');
     dialog.classList.add('add-task-dialog');
 
-    // Create dialog title
-    const title = document.createElement('h2');
-    title.classList.add('dialog-title');
-    title.textContent = 'New Task';
 
     // Create form
     const form = document.createElement('form');
@@ -132,9 +128,7 @@ function createAddTaskDialog() {
     // Append all parts to form
     form.appendChild(inputsDiv);
     form.appendChild(buttonsDiv);
-
-    // Append form to dialog
-    dialog.appendChild(title);
+    
     dialog.appendChild(form);
 
     return dialog;
