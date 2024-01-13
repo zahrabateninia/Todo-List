@@ -224,14 +224,6 @@ dialog[open].add-task-dialog {
     to { opacity: 1; }
 }
 
-h2.dialog-title{
-    letter-spacing: 1px;
-    font-size: 2rem;
-    text-shadow: 2px 2px 3px var(--clr-text);
-    color: white;
-
-
-}
 
 .inputsDiv{
     display: flex;
@@ -273,9 +265,8 @@ h2.dialog-title{
 /* style dialog buttons */
 div.buttons{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: .5rem;
     margin-top: 1rem ;
 }
 
