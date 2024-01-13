@@ -78,13 +78,7 @@ export function createTaskElement(task) {
         priority.textContent = task.priority;
         taskDetails.appendChild(priority);
 
-        // add other icons
-
-        const editIcon = document.createElement('img');
-        editIcon.classList.add('edit-icon', 'task-icon');
-        editIcon.src = "./images/edit_FILL0_wght400_GRAD0_opsz24.svg";
-        taskDetails.appendChild(editIcon);
-
+        // add trash icon
 
         const trashIcon = document.createElement('img');
         trashIcon.classList.add('trash-icon', 'task-icon');

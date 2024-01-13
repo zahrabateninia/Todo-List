@@ -7,7 +7,7 @@ export function renderNewTask(){
     tasksArr.forEach((task, index) => {
         const taskElement = createTaskElement(task);  // Creates new task element
 
-        // Add event listeners for toggling completion and removing task
+        // Add event listeners for toggling completion, editing task and removing task
         taskElement.querySelector('.circle-icon').addEventListener('click', () => toggleStatusIcon(task, taskElement));
         taskElement.querySelector('.trash-icon').addEventListener('click', () => {
             removeTaskFromContainer(taskElement);
