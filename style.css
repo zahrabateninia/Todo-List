@@ -90,6 +90,7 @@ nav{
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
+    margin-bottom: .6rem;
     border-bottom: 1px solid var(--clr-border);
 }
 /* /sidebar */
@@ -162,6 +163,33 @@ div.buttons-container button{
     background-color: rgb(234, 63, 63);
 }
 
+/* style for projects  names */
+div.project-name-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--clr-text);
+
+}
+
+div.project-name-container:hover{
+    background-color: var(--clr-secondary);
+    padding: .5rem;
+    
+
+}
+
+img.cross-icon{
+    display: none;
+}
+
+
+div.project-name-container:hover .cross-icon{
+    display: inline-block; /* display the cross icon when the project name container is hovered */
+}
+
+/* style for projects  names */
+
 /* /style for add projects in sidebar */
 
 /* Style for the dialog */
@@ -187,7 +215,7 @@ dialog.add-task-dialog {
 
 /*  Style for when the dialog is displayed */
 dialog[open].add-task-dialog {
-    animation: fadeIn 0.6s;
+    animation: fadeIn 0.8s;
 }
 
 /* Keyframes for the fadeIn effect */
