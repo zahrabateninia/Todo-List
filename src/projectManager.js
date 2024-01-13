@@ -57,7 +57,10 @@ export function enableProjectAddition() {
             crossIcon.src = './images/icons8-cross-16.png';
             crossIcon.alt = 'cross';
             crossIcon.classList.add('cross-icon');
-            crossIcon.style.display = 'none';
+
+            crossIcon.addEventListener('click', ()=>{
+                projectsNamesContainer.removeChild(projectNameContainer);
+            })
 
             projectNameContainer.appendChild(projectName);
             projectNameContainer.appendChild(crossIcon);
