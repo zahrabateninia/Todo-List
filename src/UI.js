@@ -1,6 +1,7 @@
 import { renderInbox ,  createAndAddNewTask } from "./inbox";
 import { renderTodayTasks } from "./todayTasks";
 import { enableProjectAddition } from "./projectManager";
+import { displayTodayTasks } from "./todayTasks";
 import { displayImportantTasks, renderImportantTasks } from "./importantTasks";
 import { displayCompletedTasks, renderCompletedTasks } from "./completedTasks";
 
@@ -29,6 +30,7 @@ export function updateMainContent(){
             else if(link.classList.contains('today')){
                 const todayContent = renderTodayTasks();
                 mainContent.appendChild(todayContent);
+                displayTodayTasks();
             }
             else if(link.classList.contains('completed')){
                 const completedContent = renderCompletedTasks();

@@ -18,7 +18,7 @@ export function renderTodayTasks(){
     return todayDiv;
 };
 
-function displayTodayTasks() {
+export function displayTodayTasks() {
     const allTasksContainer = document.querySelector('.all-tasks-container');
 
     if(allTasksContainer){ // if there are tasks in inbox
@@ -34,7 +34,7 @@ function displayTodayTasks() {
         } else {
             // No tasks for today
             const noTaskMessage = document.createElement('p');
-            noTaskMessage.textContent = "No tasks today! Time for a movie break?";
+            noTaskMessage.textContent = "No tasks today! Time for a movie break!";
             noTaskMessage.classList.add('no-task-msg');
             allTasksContainer.appendChild(noTaskMessage);
         }
