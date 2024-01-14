@@ -2,6 +2,7 @@ import { renderInbox ,  createAndAddNewTask } from "./inbox";
 import { renderTodayTasks } from "./todayTasks";
 import { enableProjectAddition } from "./projectManager";
 import { displayImportantTasks, renderImportantTasks } from "./importantTasks";
+import { displayCompletedTasks, renderCompletedTasks } from "./completedTasks";
 
 
 export function updateMainContent(){
@@ -30,7 +31,9 @@ export function updateMainContent(){
                 mainContent.appendChild(todayContent);
             }
             else if(link.classList.contains('completed')){
-                // mainContent.textContent = renderCompleted();
+                const completedContent = renderCompletedTasks();
+                mainContent.appendChild(completedContent);
+                displayCompletedTasks();
             }
             else if(link.classList.contains('important')){
                 const importantContent = renderImportantTasks();
@@ -52,7 +55,7 @@ export function clearTasks() {
 }
 
 
-export function createTaskElement(task) {
+export function createTaskElement(task) { 
         const taskContainer = document.createElement('div');
         taskContainer.classList.add('task-container');
         const taskStatusTitle = document.createElement('div');
@@ -65,6 +68,7 @@ export function createTaskElement(task) {
         statusIcon.classList.add('circle-icon', 'task-icon');
         statusIcon.src = "./images/circle_FILL0_wght400_GRAD0_opsz24.svg";
         taskStatusTitle.appendChild(statusIcon);
+
 
         // add task title 
         const taskTitle = document.createElement('p');
@@ -91,6 +95,7 @@ export function createTaskElement(task) {
         trashIcon.classList.add('trash-icon', 'task-icon');
         trashIcon.src = "./images/delete_FILL0_wght400_GRAD0_opsz24.svg";
         taskDetails.appendChild(trashIcon);
+
 
         taskContainer.appendChild(taskStatusTitle);
         taskContainer.appendChild(taskDetails);

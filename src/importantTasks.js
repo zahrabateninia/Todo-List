@@ -1,4 +1,5 @@
 import { tasksArr } from "./inbox";
+import { renderNewTask } from "./toDoItem";
 import { createTaskElement } from "./UI";
 
 export function renderImportantTasks(){
