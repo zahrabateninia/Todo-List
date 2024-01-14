@@ -293,20 +293,22 @@ button.cancel-btn{
 
 /* /inbox dialog form */
 
-/* Inbox style */
-.inbox-div {
+/* Inbox + today style */
+.inbox-div,
+.today-div{
     gap: 1rem;
     margin: 2rem 3rem;
 }
 
-.inbox-div h1 {
+.inbox-div h1,
+.today-div h1{
     font-size: 2rem;
     color: rgb(46, 46, 46);
     font-weight: 500;
     letter-spacing: .7px;
     margin-bottom: 2.6rem;
 }
-
+ 
 div.add-new-task {
     display: flex;
     gap: .6rem;
