@@ -41,9 +41,6 @@ function displayTodayTasks() {
             allTasksContainer.appendChild(noTaskMessage);
         }
     }
-
-
-    
 };
 
 function isDueToday(taskDate) {

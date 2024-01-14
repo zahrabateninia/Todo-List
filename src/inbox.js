@@ -1,3 +1,4 @@
+import { renderTodayTasks } from "./today";
 import { renderNewTask } from "./toDoItem";
 
 export function renderInbox(){
@@ -17,7 +18,7 @@ export function renderInbox(){
 
     const plusIcon =  document.createElement('img');
     plusIcon.src = './images/add_FILL0_wght400_GRAD0_opsz24.svg';
-    plusIcon.classList.add('task-plus-icon')
+    plusIcon.classList.add('task-plus-icon');
     plusIcon.alt = 'plus';
     addNewTaskDiv.appendChild(plusIcon);
 
@@ -29,7 +30,9 @@ export function renderInbox(){
     inboxDiv.appendChild(inboxH1);
     inboxDiv.appendChild(allTasksContainer);
     inboxDiv.appendChild(addNewTaskDiv);
+
     createAddTaskDialog();
+
     return inboxDiv;
 };
 
@@ -81,6 +84,7 @@ function createAddTaskDialog() {
     const prioritySelect = document.createElement('select');
     prioritySelect.name = 'priority';
     prioritySelect.id = 'priority';
+
     prioritySelect.classList.add('priority--select');
     ['Low', 'Medium', 'High'].forEach((priority) => {
         const option = document.createElement('option');
@@ -138,7 +142,7 @@ function createAddTaskDialog() {
 let tasksContainer; // Will be initialized only once
 export const tasksArr = [];
 
-export function addTaskDialog() {
+export function createAndAddNewTask() { // add the new task to the tasks container
     // Ensure tasksContainer is created and appended only once
     if (!tasksContainer) {
         tasksContainer = document.createElement('div');
@@ -165,9 +169,14 @@ export function addTaskDialog() {
         addButton.addEventListener('click', (e) =>{
             e.preventDefault();
 
-            const title = dialog.querySelector('#task-title').value;
+            const title = dialog.querySelector('#task-title').value.trim();
             const priority = dialog.querySelector('#priority').value;
             const schedule = dialog.querySelector('#schedule').value;
+            
+            if(!title){
+                alert('Task title is required');
+                return;
+            }
 
             const newTask = {
                 title: title,
@@ -177,6 +186,7 @@ export function addTaskDialog() {
             };
 
             tasksArr.push(newTask);
+            renderTodayTasks();
 
             dialog.close();
             document.body.removeChild(dialog);

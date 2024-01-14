@@ -1,5 +1,7 @@
-import { renderInbox ,  addTaskDialog } from "./inbox";
+import { renderInbox ,  createAndAddNewTask } from "./inbox";
+import { renderTodayTasks } from "./today";
 import { enableProjectAddition } from "./projectManager";
+
 
 export function updateMainContent(){
     const mainContent = document.querySelector('.main-content');
@@ -19,10 +21,12 @@ export function updateMainContent(){
             if(link.classList.contains('inbox')){
                 const inboxContent = renderInbox();
                 mainContent.appendChild(inboxContent);
-                addTaskDialog();
+                createAndAddNewTask();
+
             }
             else if(link.classList.contains('today')){
-                // mainContent.textContent = renderToday();
+                const todayContent = renderTodayTasks();
+                mainContent.appendChild(todayContent);
             }
             else if(link.classList.contains('completed')){
                 // mainContent.textContent = renderCompleted();
