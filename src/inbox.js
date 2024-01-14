@@ -1,5 +1,6 @@
 import { renderTodayTasks } from "./today";
 import { renderNewTask } from "./toDoItem";
+import { createTaskElement } from "./UI";
 
 export function renderInbox(){
     const inboxDiv = document.createElement('div');
@@ -32,7 +33,13 @@ export function renderInbox(){
     inboxDiv.appendChild(addNewTaskDiv);
 
     createAddTaskDialog();
-
+    if(tasksArr){ // if there is already some tasks added show them when navigate back to inbox link
+        tasksArr.forEach(task => {
+            const taskElement = createTaskElement(task);
+            allTasksContainer.appendChild(taskElement);
+        });
+    };
+    
     return inboxDiv;
 };
 
