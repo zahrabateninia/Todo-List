@@ -1,6 +1,7 @@
 import { renderInbox ,  createAndAddNewTask } from "./inbox";
-import { renderTodayTasks } from "./today";
+import { renderTodayTasks } from "./todayTasks";
 import { enableProjectAddition } from "./projectManager";
+import { displayImportantTasks, renderImportantTasks } from "./importantTasks";
 
 
 export function updateMainContent(){
@@ -32,7 +33,9 @@ export function updateMainContent(){
                 // mainContent.textContent = renderCompleted();
             }
             else if(link.classList.contains('important')){
-                // mainContent.textContent = renderImportant();
+                const importantContent = renderImportantTasks();
+                mainContent.appendChild(importantContent);
+                displayImportantTasks();
             }
             else if(link.classList.contains('add-project')){
                 enableProjectAddition();

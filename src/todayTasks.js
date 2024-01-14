@@ -8,10 +8,8 @@ export function renderTodayTasks(){
     const todayH1= document.createElement('h1');
     todayH1.textContent= 'Today Tasks';
 
-    // all tasks container which is below the header and above the add new task div
     const allTasksContainer = document.createElement('div');
     allTasksContainer.classList.add('all-tasks-container');
-
     
     todayDiv.appendChild(todayH1);
     todayDiv.appendChild(allTasksContainer);

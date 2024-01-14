@@ -1,4 +1,4 @@
-import { renderTodayTasks } from "./today";
+import { renderTodayTasks } from "./todayTasks";
 import { renderNewTask } from "./toDoItem";
 import { createTaskElement } from "./UI";
 
