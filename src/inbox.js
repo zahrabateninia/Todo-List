@@ -145,17 +145,10 @@ function createAddTaskDialog() {
     return dialog;
 };
 
-// Global tasks container
-let tasksContainer; // Will be initialized only once
+
 export const tasksArr = [];
 
 export function createAndAddNewTask() { // add the new task to the tasks container
-    // Ensure tasksContainer is created and appended only once
-    if (!tasksContainer) {
-        tasksContainer = document.createElement('div');
-        tasksContainer.classList.add('tasks-container');
-        document.querySelector('.main-content').appendChild(tasksContainer);
-    }
 
     const addNewTaskDiv = document.querySelector('.add-new-task');
 
@@ -193,12 +186,11 @@ export function createAndAddNewTask() { // add the new task to the tasks contain
             };
 
             tasksArr.push(newTask);
-            renderTodayTasks();
 
             dialog.close();
             document.body.removeChild(dialog);
 
-            renderNewTask(); // handle rendering all tasks
+            renderNewTask(); 
         });
     });
 }

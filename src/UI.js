@@ -4,6 +4,7 @@ import { enableProjectAddition } from "./projectManager";
 import { displayTodayTasks } from "./todayTasks";
 import { displayImportantTasks, renderImportantTasks } from "./importantTasks";
 import { displayCompletedTasks, renderCompletedTasks } from "./completedTasks";
+import { attachEventListenersToTasksContainer } from "./toDoItem";
 
 
 export function updateMainContent(){
@@ -25,7 +26,7 @@ export function updateMainContent(){
                 const inboxContent = renderInbox();
                 mainContent.appendChild(inboxContent);
                 createAndAddNewTask();
-
+                attachEventListenersToTasksContainer();  // Attach event listeners
             }
             else if(link.classList.contains('today')){
                 const todayContent = renderTodayTasks();
@@ -120,6 +121,7 @@ export function toggleStatusIcon(task, taskElement){
     task.done = !task.done;
     const taskTitle = taskElement.querySelector('.task-title');
 
+    // Change the visual representation of the status icon
     if(task.done){
         statusIcon.src = "images/check_circle_FILL0_wght400_GRAD0_opsz24.svg";
         taskTitle.style.textDecoration = 'line-through';
@@ -127,6 +129,8 @@ export function toggleStatusIcon(task, taskElement){
         statusIcon.src = "./images/circle_FILL0_wght400_GRAD0_opsz24.svg";
         taskTitle.style.textDecoration = 'none';
     }
+
+
 };
 
 

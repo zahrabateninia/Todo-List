@@ -34,7 +34,7 @@ export function displayTodayTasks() {
         } else {
             // No tasks for today
             const noTaskMessage = document.createElement('p');
-            noTaskMessage.textContent = "No tasks today! Time for a movie break!";
+            noTaskMessage.textContent = "No tasks today!";
             noTaskMessage.classList.add('no-task-msg');
             allTasksContainer.appendChild(noTaskMessage);
         }
@@ -50,3 +50,4 @@ function isDueToday(taskDate) {
 
     return today.getTime() === dueDate.getTime();
 }
+

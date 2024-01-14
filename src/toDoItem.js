@@ -4,17 +4,27 @@ import { createTaskElement, addTaskToContainer, toggleStatusIcon, removeTaskFrom
 export function renderNewTask() {
     clearTasks(); // Clear all previous tasks before rendering new ones
 
-    tasksArr.forEach((task, index) => {
-        const taskElement = createTaskElement(task);  // Creates new task element
-
-        // Add event listeners for toggling completion, editing task, and removing task
-        // Attach event listeners to icons after they are created and added to the DOM
-        taskElement.querySelector('.circle-icon').addEventListener('click', () => toggleStatusIcon(task, taskElement));
-        taskElement.querySelector('.trash-icon').addEventListener('click', () => {
-            removeTaskFromContainer(taskElement);
-            tasksArr.splice(index, 1);  // Remove the task from the array
+        tasksArr.forEach((task) => {
+            const taskElement = createTaskElement(task);  // Creates new task element
+            addTaskToContainer(taskElement);  
         });
 
-        addTaskToContainer(taskElement);  // Adds task element to container
+};
+
+export function attachEventListenersToTasksContainer() {
+    const allTasksContainer = document.querySelector('.all-tasks-container');
+
+    allTasksContainer.addEventListener('click', (event) => {
+        const taskElement = event.target.closest('.task-container');
+        if (!taskElement) return;
+
+        if (event.target.classList.contains('circle-icon')) {
+            const index = Array.from(allTasksContainer.children).indexOf(taskElement);
+            toggleStatusIcon(tasksArr[index], taskElement);
+        } else if (event.target.classList.contains('trash-icon')) {
+            const index = Array.from(allTasksContainer.children).indexOf(taskElement);
+            removeTaskFromContainer(taskElement);
+            tasksArr.splice(index, 1);
+        }
     });
 }
