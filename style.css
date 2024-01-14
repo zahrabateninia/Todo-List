@@ -312,6 +312,15 @@ button.cancel-btn{
     letter-spacing: .7px;
     margin-bottom: 2.6rem;
 }
+
+p.no-task-msg{
+    font-size: 2rem;
+    color: rgb(158, 92, 158);
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 1px;
+    opacity: .7;
+    
+}
 /* /Inbox + today + important and completed div style */
 
 /* inbox style */
