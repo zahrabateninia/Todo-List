@@ -319,6 +319,7 @@ p.no-task-msg{
     font-family: "Bebas Neue", sans-serif;
     letter-spacing: 1px;
     opacity: .7;
+    margin-left: 1rem;
     
 }
 /* /Inbox + today + important and completed div style */
