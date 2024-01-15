@@ -3,7 +3,7 @@ import { createTaskElement, addTaskToContainer, toggleStatusIcon, removeTaskFrom
 
 
 export function renderNewTask() {
-    clearTasks();
+    clearTasks(); // clear all tasks container so when adding a new task the previous tasks are not added again with the new one.
 
     tasksArr.forEach(task => {
         const taskElement = createTaskElement(task);

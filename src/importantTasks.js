@@ -1,6 +1,4 @@
 import { tasksArr } from "./inbox";
-import { renderNewTask } from "./toDoItem";
-import { createTaskElement } from "./UI";
 
 export function renderImportantTasks(){
     const importantDiv = document.createElement('div');
@@ -30,10 +28,24 @@ export function displayImportantTasks(){
         // Loop through tasks and add high-priority tasks
         tasksArr.forEach(task => {
             if (task.priority === 'high') {
-                const importantTask = createTaskElement(task);
+                const importantTask = createImportantTaskElement(task);
                 allTasksContainer.appendChild(importantTask);
             }
         });
     }
     
 }
+
+function createImportantTaskElement(task){
+
+    const taskContainer = document.createElement('div');
+    taskContainer.classList.add('task-container');
+
+    const taskTitle = document.createElement('p');
+    taskTitle.classList.add('task-title');
+    taskTitle.textContent = task.title;
+    taskContainer.appendChild(taskTitle);
+
+    return taskContainer;
+
+};
