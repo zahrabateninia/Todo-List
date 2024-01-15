@@ -70,7 +70,7 @@ function createFooter() {
     const footer = document.createElement('footer');
 
     const p = document.createElement('p');
-    p.textContent = 'Copyright © 2023 ';
+    p.textContent = 'Copyright © 2024 ';
 
     const a = document.createElement('a');
     a.href = 'https://github.com/zahrabateninia';

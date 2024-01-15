@@ -1,3 +1,4 @@
+import { saveTasksToLocalStorage } from "./storage";
 import { tasksArr } from "./inbox";
 import { createTaskElement, addTaskToContainer, toggleStatusIcon, removeTaskFromContainer, clearTasks } from "./UI";
 
@@ -40,6 +41,10 @@ export function attachEventListenersToTasksContainer() {
             const index = Array.from(allTasksContainer.children).indexOf(taskElement);
             removeTaskFromContainer(taskElement);
             tasksArr.splice(index, 1);
+            
         }
+
+        // save the updated tasks array to local storage
+        saveTasksToLocalStorage(tasksArr);
     });
 }

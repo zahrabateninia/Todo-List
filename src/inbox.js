@@ -1,9 +1,7 @@
-
+import { loadTasksFromLocalStorage, saveTasksToLocalStorage } from "./storage";
 import { renderNewTask } from "./toDoItem";
-import { createTaskElement } from "./UI";
 
-
-export const tasksArr = [];
+export const tasksArr = loadTasksFromLocalStorage();
 
 export function renderInbox(){
     const inboxDiv = document.createElement('div');
@@ -180,7 +178,7 @@ export function createAndAddNewTask() { // add the new task to the tasks contain
             dueDate.setHours(0, 0, 0, 0);
 
             if(todayDate > dueDate){
-                alert('Please select a date in future, not the past!');
+                alert('Please select a date in the future, not the past!');
                 return;
             };
 
@@ -198,6 +196,8 @@ export function createAndAddNewTask() { // add the new task to the tasks contain
 
             // add the task to the UI when add button is clicked
             renderNewTask(); 
+            // save the updated tasks array to local storage
+            saveTasksToLocalStorage(tasksArr);
         });
     });
 }
