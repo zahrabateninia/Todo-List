@@ -3,7 +3,7 @@ import { createTaskElement, addTaskToContainer, toggleStatusIcon, removeTaskFrom
 
 
 export function renderNewTask() {
-    // clearTasks();
+    clearTasks();
 
     tasksArr.forEach(task => {
         const taskElement = createTaskElement(task);
