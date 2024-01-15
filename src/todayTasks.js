@@ -1,5 +1,4 @@
 import { tasksArr } from "./inbox";
-import { createTaskElement } from "./UI";
 
 export function renderTodayTasks(){
     const todayDiv = document.createElement('div');
@@ -28,7 +27,7 @@ export function displayTodayTasks() {
 
         if (todayTasks.length > 0) {
             todayTasks.forEach(task => {
-                const taskElement = createTaskElement(task); 
+                const taskElement = createTodayTaskElement(task); 
                 allTasksContainer.appendChild(taskElement);
             });
         } else {
@@ -51,3 +50,16 @@ function isDueToday(taskDate) {
     return today.getTime() === dueDate.getTime();
 }
 
+
+function createTodayTaskElement(task){
+
+    const taskContainer = document.createElement('div');
+    taskContainer.classList.add('task-container');
+
+    const taskTitle = document.createElement('p');
+    taskTitle.classList.add('task-title');
+    taskTitle.textContent = task.title;
+    taskContainer.appendChild(taskTitle);
+
+    return taskContainer;
+}

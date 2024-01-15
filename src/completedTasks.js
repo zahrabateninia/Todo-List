@@ -1,5 +1,4 @@
 import { tasksArr } from "./inbox";
-import { createTaskElement } from "./UI";
 
 export function renderCompletedTasks(){
     const completedDiv = document.createElement('div');
@@ -28,10 +27,22 @@ export function displayCompletedTasks(){
         // Loop through tasks and add high-priority tasks
         tasksArr.forEach(task => {
             if (task.done === true) {
-                const completedTask = createTaskElement(task);
+                const completedTask = createCompletedTaskElement(task);
                 allTasksContainer.appendChild(completedTask);
             }
         });
     }
-    
+}
+
+function createCompletedTaskElement(task){
+
+    const taskContainer = document.createElement('div');
+    taskContainer.classList.add('task-container');
+
+    const taskTitle = document.createElement('p');
+    taskTitle.classList.add('task-title');
+    taskTitle.textContent = task.title;
+    taskContainer.appendChild(taskTitle);
+
+    return taskContainer;
 }
