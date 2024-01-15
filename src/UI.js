@@ -135,8 +135,6 @@ export function toggleStatusIcon(task, taskElement){
         taskTitle.style.textDecoration = 'none';
     }
 
-    // renderNewTask(); // re-render tasks to update UI
-
 };
 
 

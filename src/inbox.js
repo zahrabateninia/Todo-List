@@ -173,6 +173,17 @@ export function createAndAddNewTask() { // add the new task to the tasks contain
                 return;
             }
 
+            // Handle the situation when the selected due time is in the past 
+            const todayDate = new Date();
+            const dueDate = new Date(schedule);
+            todayDate.setHours(0, 0, 0, 0);
+            dueDate.setHours(0, 0, 0, 0);
+
+            if(todayDate > dueDate){
+                alert('Please select a date in future, not the past!');
+                return;
+            };
+
             const newTask = {
                 title: title,
                 priority: priority,
