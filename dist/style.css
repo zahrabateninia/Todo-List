@@ -3,14 +3,15 @@
 
 :root{
     --clr-primary : rgb(28, 28, 28);
-    --clr-secondary : rgba(225, 223, 223, 0.777);
+    --clr-secondary : rgb(238, 218, 209);
     --clr-background : rgb(250, 250, 255);
     --clr-text: rgb(57, 57, 57);
     --clr-border: rgb(165, 165, 165);
     --clr-accent: rgb(236, 235, 228);
-    --clr-red: #f3794c;
-    --clr-green: #71ce74;
-    --background: linear-gradient(to right, hsl(209, 31%, 34%), hsl(254, 31%, 47%));
+    --clr-cancel-btn: rgb(251, 154, 115);
+    --clr-add-btn: rgb(246, 191, 165);
+    /* --background: linear-gradient(to right, hsl(209, 31%, 34%), hsl(254, 31%, 47%)); */
+    --background: linear-gradient(to right, rgb(56, 62, 86), rgb(74, 81, 110));
 }
 
 *{
@@ -76,14 +77,17 @@ nav{
     display: flex;
     align-items: center;
     gap: .6rem;
+    transition: background-color 0.3s, padding 0.3s, transform 0.3s; /* Smooth transitions for multiple properties */
+    border-radius: 2px; /* Base border-radius */
+    cursor: pointer;
 }
 
 .sidebar a:hover{
-    background-color: var(--clr-secondary);
-    padding: .15rem;
-    transition: background-color .7s;
-    border-radius: 2px;
-    cursor: pointer;
+    background: rgba(251, 225, 215, 0.8); /* Slightly more opaque background on hover */
+    padding: .25rem; /* Increased padding */
+    border-radius: 5px; /* Slightly more rounded corners */
+    transform: scale(1.05); /* Slightly increase the size */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
 .sidebar a.add-project{ 
@@ -118,6 +122,12 @@ div.project-name-input-container input{
     margin: 8px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    transition: rgb(246, 128, 81) 0.3s ease;
+}
+
+div.project-name-input-container input:focus{
+    outline: 1px solid rgb(246, 128, 81);
+
 }
 
 
@@ -147,20 +157,24 @@ div.buttons-container button{
 }
 
 .add-project-btn{
-    background-color: var(--clr-green);
+    background-color: var(--clr-cancel-btn);
+    transition: transform 0.3s ease; /* Smooth transition for transform */
 }
 
 .add-project-btn:hover{
-    background-color: #3dad40;
+    background-color: rgb(245, 136, 93);
+    transform: scale(1.1); 
 }
 
 
 .cancel-adding-btn{
-    background-color: var(--clr-red);
+    background-color: var(--clr-add-btn);
+    transition: transform 0.3s ease; 
 }
 
 .cancel-adding-btn:hover{
-    background-color: rgb(234, 63, 63);
+    background-color: rgb(217, 170, 148);
+    transform: scale(1.1); 
 }
 
 /* style for projects  names */
@@ -175,8 +189,6 @@ div.project-name-container{
 div.project-name-container:hover{
     background-color: var(--clr-secondary);
     padding: .5rem;
-    
-
 }
 
 img.cross-icon{
