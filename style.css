@@ -6,7 +6,7 @@
     --clr-secondary : rgb(238, 218, 209);
     --clr-background : rgb(250, 250, 255);
     --clr-text: rgb(57, 57, 57);
-    --clr-border: rgb(165, 165, 165);
+    --clr-border: rgb(161, 159, 159);
     --clr-accent: rgb(236, 235, 228);
     --clr-cancel-btn: rgb(251, 154, 115);
     --clr-add-btn: rgb(246, 191, 165);
@@ -183,12 +183,13 @@ div.project-name-container{
     justify-content: space-between;
     align-items: center;
     color: var(--clr-text);
+    transition:  padding 0.2s; 
 
 }
 
 div.project-name-container:hover{
-    background-color: var(--clr-secondary);
-    padding: .5rem;
+    padding: .2rem;
+    cursor: pointer;
 }
 
 img.cross-icon{
@@ -214,7 +215,7 @@ dialog.add-task-dialog {
     border: none;  
     border-radius: 10px;  
     padding: 2rem;  
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
     background-image: var(--background); 
 
     /* Centering the dialog */
@@ -277,29 +278,40 @@ dialog[open].add-task-dialog {
 /* style dialog buttons */
 div.buttons{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-top: 1rem ;
 }
 
 button.add-btn{
-    background-color: transparent;
-    color: #fff;
-    padding: 10px 20px;
-    border: 1px solid rgb(190, 187, 187);
+    background-color: rgb(246, 158, 123);
+    color: rgb(47, 47, 47);
+    padding: 10px 25px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+button.add-btn:hover{
+    transform: scale(1.1);
 }
 
 button.cancel-btn{
-    background-color: transparent;
-    color: #fff;
-    padding: 10px 20px;
-    border: 1px solid rgb(190, 187, 187);
+    background-color: rgb(255, 208, 187);
+    color: rgb(47, 47, 47);
+    padding: 10px 25px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+
+button.cancel-btn:hover{
+    transform: scale(1.1);
 }
 
 
