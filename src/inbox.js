@@ -1,6 +1,9 @@
-import { renderTodayTasks } from "./todayTasks";
+
 import { renderNewTask } from "./toDoItem";
 import { createTaskElement } from "./UI";
+
+
+export const tasksArr = [];
 
 export function renderInbox(){
     const inboxDiv = document.createElement('div');
@@ -33,13 +36,7 @@ export function renderInbox(){
     inboxDiv.appendChild(addNewTaskDiv);
 
     createAddTaskDialog();
-    if(tasksArr){ // if there is already some tasks added show them when navigate back to inbox link
-        tasksArr.forEach(task => {
-            const taskElement = createTaskElement(task);
-            allTasksContainer.appendChild(taskElement);
-        });
-    };
-    
+
     return inboxDiv;
 };
 
@@ -146,8 +143,6 @@ function createAddTaskDialog() {
 };
 
 
-export const tasksArr = [];
-
 export function createAndAddNewTask() { // add the new task to the tasks container
 
     const addNewTaskDiv = document.querySelector('.add-new-task');
@@ -190,6 +185,7 @@ export function createAndAddNewTask() { // add the new task to the tasks contain
             dialog.close();
             document.body.removeChild(dialog);
 
+            // add the task to the UI when add button is clicked
             renderNewTask(); 
         });
     });

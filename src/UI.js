@@ -4,8 +4,8 @@ import { enableProjectAddition } from "./projectManager";
 import { displayTodayTasks } from "./todayTasks";
 import { displayImportantTasks, renderImportantTasks } from "./importantTasks";
 import { displayCompletedTasks, renderCompletedTasks } from "./completedTasks";
-import { attachEventListenersToTasksContainer } from "./toDoItem";
-
+import { attachEventListenersToTasksContainer, renderNewTask } from "./toDoItem";
+import { tasksArr } from "./inbox";
 
 export function updateMainContent(){
     const mainContent = document.querySelector('.main-content');
@@ -23,10 +23,15 @@ export function updateMainContent(){
 
             // Determine which function to call based on clicked link's class
             if(link.classList.contains('inbox')){
-                const inboxContent = renderInbox();
-                mainContent.appendChild(inboxContent);
-                createAndAddNewTask();
-                attachEventListenersToTasksContainer();  // Attach event listeners
+                const inboxContent = renderInbox(); 
+                mainContent.appendChild(inboxContent); 
+                createAndAddNewTask(); // by clicking add btn in dialog add the new task to tasksArr and the all tasks container in the inbox 
+                attachEventListenersToTasksContainer(); // event listener delegation
+                
+                if(tasksArr.length > 0 ){ // if there is already some tasks added show them when navigate back to inbox link
+                    renderNewTask();
+            };
+        
             }
             else if(link.classList.contains('today')){
                 const todayContent = renderTodayTasks();
@@ -130,6 +135,7 @@ export function toggleStatusIcon(task, taskElement){
         taskTitle.style.textDecoration = 'none';
     }
 
+    // renderNewTask(); // re-render tasks to update UI
 
 };
 
