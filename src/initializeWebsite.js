@@ -1,4 +1,4 @@
-function createHeader(){
+function createHeader() {
     const header = document.createElement('header');
 
     const headerLogo = document.createElement('img');
@@ -9,10 +9,37 @@ function createHeader(){
     const headerH1 = document.createElement('h1');
     headerH1.textContent = 'Todo List';
 
+    // add menu icon ( only be shown when on the mobile devices)
+    const menuIcon = document.createElement('img');
+    menuIcon.classList.add('menu-icon');
+    menuIcon.src = './images/icons8-menu-24.svg';
+    menuIcon.alt = 'menu';
+
     header.appendChild(headerLogo);
     header.appendChild(headerH1);
+    header.appendChild(menuIcon);
+
+    // Call checkWindowSize with menuIcon as a parameter
+    checkWindowSize(menuIcon);
+
     return header;
 }
+
+// Modify checkWindowSize to accept the menuIcon as a parameter
+function checkWindowSize(menuIcon) {
+    if (window.innerWidth <= 768) {
+        menuIcon.style.display = 'block';
+    } else {
+        menuIcon.style.display = 'none';
+    }
+}
+
+// Update the event listener for window resize to also pass menuIcon
+window.addEventListener('resize', () => {
+    const menuIcon = document.querySelector('img.menu-icon');
+    checkWindowSize(menuIcon);
+});
+
 
 
 function createSidebar() {

@@ -451,3 +451,26 @@ footer img{
     height: 1.7rem;
 }
 /* /footer */
+
+/* Mobile view adjustments */
+@media screen and (max-width: 768px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    }
+
+    nav {
+        position: fixed;
+        width: 60%;
+        height: 100%;
+        left: -60%; /* Initially off-screen */
+        transition: left 0.3s;
+    }
+
+    img.menu-icon {
+        cursor: pointer;
+    }
+}
