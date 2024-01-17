@@ -41,7 +41,6 @@ window.addEventListener('resize', () => {
 });
 
 
-
 function createSidebar() {
     const nav = document.createElement('nav');
     const sidebar = document.createElement('div');
@@ -116,6 +115,32 @@ function createFooter() {
     return footer;
 }
 
+// toggle sidebar
+
+function toggleSidebar(){
+    const menuIcon = document.querySelector('.menu-icon');
+    const sidebar = document.querySelector('nav');
+
+    menuIcon.addEventListener('click', function() {
+        // Toggle sidebar visibility
+        sidebar.style.left = sidebar.style.left === '0px' ? '-60%' : '0px';
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        // Check if the click is outside the sidebar
+        const isClickInsideSidebar = sidebar.contains(event.target);
+        const isClickOnMenuIcon = menuIcon.contains(event.target);
+
+        if (!isClickInsideSidebar && !isClickOnMenuIcon && sidebar.style.left === '0px') {
+            // Hide the sidebar if it's open and the click was outside
+            sidebar.style.left = '-60%';
+        }
+    });
+
+
+}
+
 export default function initializeWebsite(){
     const wrapper = document.createElement('div');
     wrapper.classList.add('wrapper');
@@ -125,6 +150,7 @@ export default function initializeWebsite(){
 
     wrapper.appendChild(createHeader());
     wrapper.appendChild(createSidebar());
+    toggleSidebar();
     wrapper.appendChild(createMain());
     wrapper.appendChild(createFooter());
 
