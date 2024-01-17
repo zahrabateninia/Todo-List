@@ -10,6 +10,10 @@ Welcome to the repository of my advanced Todo List application. This project is 
 - **Project Organization**: Users can create projects to categorize and manage todos.
 - **Persistence**: Using the Web Storage API, the todos and projects persist across sessions.
 
+## Demo
+
+You can view a live demo of this project [here](https://zahrabateninia.github.io/Todo-List/).
+
 ## Technical Aspects
 
 - **Module Pattern**: The application logic is encapsulated using the Module Pattern, promoting maintainability and reusability.
