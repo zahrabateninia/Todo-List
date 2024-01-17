@@ -87,7 +87,7 @@ nav{
     padding: .25rem; /* Increased padding */
     border-radius: 5px; /* Slightly more rounded corners */
     transform: scale(1.05); /* Slightly increase the size */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); 
 }
 
 .sidebar a.add-project{ 
@@ -339,10 +339,9 @@ button.cancel-btn:hover{
 
 p.no-task-msg{
     font-size: 2rem;
-    color: rgb(158, 92, 158);
+    color: rgb(204, 150, 204);
     font-family: "Bebas Neue", sans-serif;
     letter-spacing: 1px;
-    opacity: .7;
     margin-left: 1rem;
     
 }
@@ -440,6 +439,7 @@ footer{
     border-top-right-radius: 125px;
     color: var(--clr-secondary);
     grid-area: footer;
+    z-index: 5;
 }
 footer p a{
     text-decoration: none;
@@ -468,7 +468,7 @@ footer img{
         height: 100%;
         left: -60%; /* Initially off-screen */
         transition: left 0.3s;
-        z-index: 10;
+
     }
 
     header{
