@@ -468,9 +468,23 @@ footer img{
         height: 100%;
         left: -60%; /* Initially off-screen */
         transition: left 0.3s;
+        z-index: 10;
+    }
+
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header h1{
+        padding-left: 0;
     }
 
     img.menu-icon {
         cursor: pointer;
+        width: 45px;
+        height: 45px;
+
     }
 }
