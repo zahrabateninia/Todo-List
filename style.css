@@ -49,6 +49,10 @@ header h1{
     font-size: 3rem;
     padding-left: 1rem;
 }
+
+header img.logo{
+    display: block;
+}
 /* /header */
 
 /* sidebar */
@@ -486,5 +490,16 @@ footer img{
         width: 45px;
         height: 45px;
 
+    }
+}
+
+/* display the logo of header only on screens bigger than 461px */
+
+@media screen and (max-width: 461px) {
+    header img.logo {
+        display: none;
+    }
+    header h1{
+        font-size: 1.5rem;
     }
 }
