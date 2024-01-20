@@ -30,7 +30,7 @@ export function updateMainContent(){
                 
                 if(tasksArr.length > 0 ){ // if there is already some tasks added show them when navigate back to inbox link
                     renderNewTask();
-            };
+            }
         
             }
             else if(link.classList.contains('today')){
@@ -50,10 +50,10 @@ export function updateMainContent(){
             }
             else if(link.classList.contains('add-project')){
                 enableProjectAddition();
-            };
+            }
         });
     });
-};
+}
 
 // DOM for to do list tasks
 
@@ -135,6 +135,6 @@ export function toggleStatusIcon(task, taskElement){
         taskTitle.style.textDecoration = 'none';
     }
 
-};
+}
 
 
