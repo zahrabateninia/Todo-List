@@ -1,50 +1,53 @@
 import { saveTasksToLocalStorage } from "./storage";
 import { tasksArr } from "./inbox";
-import { createTaskElement, addTaskToContainer, toggleStatusIcon, removeTaskFromContainer, clearTasks } from "./UI";
-
+import {
+  createTaskElement,
+  addTaskToContainer,
+  toggleStatusIcon,
+  removeTaskFromContainer,
+  clearTasks,
+} from "./UI";
 
 export function renderNewTask() {
-    clearTasks(); // clear all tasks container so when adding a new task the previous tasks are not added again with the new one.
+  clearTasks(); // clear all tasks container so when adding a new task the previous tasks are not added again with the new one.
 
-    tasksArr.forEach(task => {
-        const taskElement = createTaskElement(task);
-        updateTaskUI(task, taskElement); 
-        addTaskToContainer(taskElement);
-    });
+  tasksArr.forEach((task) => {
+    const taskElement = createTaskElement(task);
+    updateTaskUI(task, taskElement);
+    addTaskToContainer(taskElement);
+  });
 }
 
-
 function updateTaskUI(task, taskElement) {
-    const statusIcon = taskElement.querySelector('.circle-icon');
-    const taskTitle = taskElement.querySelector('.task-title');
+  const statusIcon = taskElement.querySelector(".circle-icon");
+  const taskTitle = taskElement.querySelector(".task-title");
 
-    if (task.done) {
-        statusIcon.src = "images/check_circle_FILL0_wght400_GRAD0_opsz24.svg";
-        taskTitle.style.textDecoration = 'line-through';
-    } else {
-        statusIcon.src = "./images/circle_FILL0_wght400_GRAD0_opsz24.svg";
-        taskTitle.style.textDecoration = 'none';
-    }
+  if (task.done) {
+    statusIcon.src = "images/check_circle_FILL0_wght400_GRAD0_opsz24.svg";
+    taskTitle.style.textDecoration = "line-through";
+  } else {
+    statusIcon.src = "./images/circle_FILL0_wght400_GRAD0_opsz24.svg";
+    taskTitle.style.textDecoration = "none";
+  }
 }
 
 export function attachEventListenersToTasksContainer() {
-    const allTasksContainer = document.querySelector('.all-tasks-container');
+  const allTasksContainer = document.querySelector(".all-tasks-container");
 
-    allTasksContainer.addEventListener('click', (event) => {
-        const taskElement = event.target.closest('.task-container');
-        if (!taskElement) return;
+  allTasksContainer.addEventListener("click", (event) => {
+    const taskElement = event.target.closest(".task-container");
+    if (!taskElement) return;
 
-        if (event.target.classList.contains('circle-icon')) {
-            const index = Array.from(allTasksContainer.children).indexOf(taskElement);
-            toggleStatusIcon(tasksArr[index], taskElement);
-        } else if (event.target.classList.contains('trash-icon')) {
-            const index = Array.from(allTasksContainer.children).indexOf(taskElement);
-            removeTaskFromContainer(taskElement);
-            tasksArr.splice(index, 1);
-            
-        }
+    if (event.target.classList.contains("circle-icon")) {
+      const index = Array.from(allTasksContainer.children).indexOf(taskElement);
+      toggleStatusIcon(tasksArr[index], taskElement);
+    } else if (event.target.classList.contains("trash-icon")) {
+      const index = Array.from(allTasksContainer.children).indexOf(taskElement);
+      removeTaskFromContainer(taskElement);
+      tasksArr.splice(index, 1);
+    }
 
-        // save the updated tasks array to local storage
-        saveTasksToLocalStorage(tasksArr);
-    });
+    // save the updated tasks array to local storage
+    saveTasksToLocalStorage(tasksArr);
+  });
 }

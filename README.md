@@ -29,6 +29,7 @@ The application boasts a user-friendly interface allowing for easy management of
 - **Color-Coded Priorities**: Todos can be color-coded based on priority, making it easy to identify the most critical tasks at a glance.
 
 ## Contributions
+
 Feel free to fork the project and submit a pull request with your enhancements.
 
 Thank you for visiting my Advanced Todo List project!
