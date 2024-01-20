@@ -36,7 +36,7 @@ export function renderInbox(){
     createAddTaskDialog();
 
     return inboxDiv;
-};
+}
 
 
 
@@ -138,7 +138,7 @@ function createAddTaskDialog() {
     dialog.appendChild(form);
 
     return dialog;
-};
+}
 
 
 export function createAndAddNewTask() { // add the new task to the tasks container
@@ -180,7 +180,7 @@ export function createAndAddNewTask() { // add the new task to the tasks contain
             if(todayDate > dueDate){
                 alert('Please select a date in the future, not the past!');
                 return;
-            };
+            }
 
             const newTask = {
                 title: title,

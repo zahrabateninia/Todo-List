@@ -14,7 +14,7 @@ export function renderImportantTasks(){
     importantDiv.appendChild(allTasksContainer);
 
     return importantDiv;
-};
+}
 
 export function displayImportantTasks(){
     // in the task array check for objects that their priority is high,
@@ -48,4 +48,4 @@ function createImportantTaskElement(task){
 
     return taskContainer;
 
-};
+}

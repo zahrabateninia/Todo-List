@@ -14,7 +14,7 @@ export function renderCompletedTasks(){
     completedDiv.appendChild(allTasksContainer);
 
     return completedDiv;
-};
+}
 
 export function displayCompletedTasks(){
     // for each task check if the 'done' is equal to true for showing it in the completed div 

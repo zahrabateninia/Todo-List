@@ -15,7 +15,7 @@ export function renderTodayTasks(){
 
     displayTodayTasks();
     return todayDiv;
-};
+}
 
 export function displayTodayTasks() {
     const allTasksContainer = document.querySelector('.all-tasks-container');
@@ -38,7 +38,7 @@ export function displayTodayTasks() {
             allTasksContainer.appendChild(noTaskMessage);
         }
     }
-};
+}
 
 function isDueToday(taskDate) {
     const today = new Date();
