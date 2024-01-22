@@ -1,3 +1,6 @@
+import { renderInbox, createAndAddNewTask } from "./inbox";
+import { attachEventListenersToTasksContainer } from "./toDoItem";
+
 function createHeader() {
   const header = document.createElement("header");
 
@@ -176,7 +179,14 @@ export default function initializeWebsite() {
   wrapper.appendChild(createHeader());
   wrapper.appendChild(createSidebar());
   toggleSidebar();
-  wrapper.appendChild(createMain());
+  const mainContent = createMain();
+  wrapper.appendChild(mainContent);
+  // when the website is rendered, the inbox content is shown as a default 
+  const inboxContent = renderInbox();
+  mainContent.appendChild(inboxContent);
+  createAndAddNewTask(); 
+  attachEventListenersToTasksContainer(); 
+
   wrapper.appendChild(createFooter());
 
   return wrapper;
