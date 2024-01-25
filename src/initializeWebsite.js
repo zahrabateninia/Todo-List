@@ -1,5 +1,7 @@
-import { renderInbox, createAndAddNewTask } from "./inbox";
-import { attachEventListenersToTasksContainer } from "./toDoItem";
+import { renderInbox, createAndAddNewTask, tasksArr } from "./inbox";
+import { attachEventListenersToTasksContainer, renderNewTask } from "./toDoItem";
+import { loadTasksFromLocalStorage } from "./storage";
+
 
 function createHeader() {
   const header = document.createElement("header");
@@ -181,11 +183,19 @@ export default function initializeWebsite() {
   toggleSidebar();
   const mainContent = createMain();
   wrapper.appendChild(mainContent);
-  // when the website is rendered, the inbox content is shown as a default 
+
+  // when the website is rendered, the inbox contents (with previous added tasks) are shown as a default 
   const inboxContent = renderInbox();
   mainContent.appendChild(inboxContent);
+  if(tasksArr){
+    const data = loadTasksFromLocalStorage(); // tasks are stored in an array in data
+    // push the data(tasks) to the tasks container
+    data.forEach((task) =>{
+      renderNewTask()
+    })
+}
   createAndAddNewTask(); 
-  attachEventListenersToTasksContainer(); 
+  attachEventListenersToTasksContainer();
 
   wrapper.appendChild(createFooter());
 
